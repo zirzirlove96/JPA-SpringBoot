@@ -75,6 +75,7 @@ public class ItemController {
     public String updateItem(@ModelAttribute("form") BookForm form){
         //updateItemForm.html에서 가져올 객체를 BookForm을 이용하여 사용한다.
 
+        /**
         Book book = new Book();
         book.setISBN(form.getIsbn());
         //html에 수정한 입력값들을 book에 적용시킨다.
@@ -85,6 +86,10 @@ public class ItemController {
         book.setStockQuantity(form.getStockQuantity());
 
         itemService.saveItem(book);
+         **/
+
+        //이게 더 훨씬 나은 코드이다.
+        itemService.updateItem(form.getId(), form.getName(), form.getPrice(), form.getStockQuantity());
         return "redirect:/items";//주문목록으로 이동
     }
 
