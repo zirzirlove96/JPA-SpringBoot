@@ -8,9 +8,12 @@ import jpabook.jpashop.domain.OrderItem;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -56,6 +59,9 @@ public class OrderService {
     }//Order.class에서의 cancle메서드를 사용해 준다. JPA가 알아서 변경 감지를 알아서 update query가 sql에 날아간다.
 
     /**주문 검색**/
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAll(orderSearch);
+    }
 
     
 }

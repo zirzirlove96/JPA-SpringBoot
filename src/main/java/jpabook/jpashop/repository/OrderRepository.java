@@ -56,7 +56,7 @@ public class OrderRepository {
         //동적으로 처리
         //language=JPQL
         //JPQL을 문자로 생성하는 것은 오류가 발생할 경우가 많다.
-        String jpql = "select o from order o join o.member m";
+        String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
 
         if(orderSearch.getOrderStatus()!=null){

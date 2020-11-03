@@ -2,6 +2,8 @@ package jpabook.jpashop.controller;
 
 import jpabook.jpashop.domain.Item.Item;
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.repository.OrderSearch;
 import jpabook.jpashop.service.ItemService;
 import jpabook.jpashop.service.MemberService;
 import jpabook.jpashop.service.OrderService;
@@ -9,9 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,6 +50,25 @@ public class OrderController {
         return "redirect:/orders";
 
     }
+
+    /**주문 목록**/
+    @GetMapping("/orders")
+    public String orderList(@ModelAttribute("orderSearch")OrderSearch orderSearch,Model model){
+        List<Order> orders = orderService.findOrders(orderSearch);
+        model.addAttribute("orders", orders);
+        //model.addAttribute("orderSearch",orderSearch); @ModelAttribute가 대신 해준다.
+        //@ModelAttribute는 보낼 수도 있고 담을 수도 있다.
+        return "order/orderList";
+
+    }
+
+    /**주문 취소,검색**/
+    @PostMapping("/orders/{orderId}/cancel")
+    public String cancleOrder(@PathVariable("orderId")Long orderId){
+        orderService.cancleOrder(orderId);
+        return "redirect:/orders";
+    }
+
 
 
 }
