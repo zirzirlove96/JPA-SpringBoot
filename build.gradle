@@ -24,8 +24,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
+<<<<<<< HEAD
 	implementation 'com.h2database:h2'
 	//runtimeOnly 'com.h2database:h2'
+=======
+	runtimeOnly 'com.h2database:h2'
+>>>>>>> 176fabe4c53b77de93ebeaa83c7854f353b0d68b
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'

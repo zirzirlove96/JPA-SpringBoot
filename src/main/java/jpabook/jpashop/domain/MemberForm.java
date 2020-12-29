@@ -14,5 +14,9 @@ public class MemberForm {
 
     private String city;
     private String street;
+<<<<<<< HEAD
     private String zipCode;
+=======
+    private String zipcode;
+>>>>>>> 176fabe4c53b77de93ebeaa83c7854f353b0d68b
 }

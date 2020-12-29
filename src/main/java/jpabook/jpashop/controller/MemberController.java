@@ -38,7 +38,11 @@ public class MemberController {
         }
 
         //주소값을 생성
+<<<<<<< HEAD
         Address address = new Address(memberForm.getCity(), memberForm.getStreet(), memberForm.getZipCode());
+=======
+        Address address = new Address(memberForm.getCity(), memberForm.getStreet(), memberForm.getZipcode());
+>>>>>>> 176fabe4c53b77de93ebeaa83c7854f353b0d68b
 
         Member member = new Member();
         member.setName(memberForm.getName());
