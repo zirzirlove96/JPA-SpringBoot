@@ -11,5 +11,8 @@ CMD
 java jar war fileName.war
 ```
 
+> 스프링 데이터 JPA와 JPA의 차이점을 알게 되었고, 이 과정 속에서는 JPA를 사용하여 수행됩니다.   
+
+
 
 
